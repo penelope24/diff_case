@@ -19,7 +19,18 @@ public class case2 {
         Set<BlockStmt> res = new HashSet<>();
         visiting.add(n);
         while (!visiting.isEmpty()) {
-            
+            Node node = visiting.pop();
+            if (node instanceof BlockStmt) {
+                res.add((BlockStmt) node);
+            }
+            node.getChildNodes().forEach(child -> {
+//                if (!visited.contains(child)) {
+//                    visiting.add(child);
+//                }
+                if (visited.add(child)) {
+                    visiting.add(child);
+                }
+            });
         }
         return res;
     }

@@ -4,6 +4,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
+// add import 
+// add import 
 
 import org.w3c.dom.Node;
 
@@ -16,6 +18,7 @@ public class case2 {
     }
 
     public Set<BlockStmt> collectBlockStmts() {
+        // add if check
         Set<BlockStmt> res = new HashSet<>();
         visiting.add(n);
         while (!visiting.isEmpty()) {
@@ -24,11 +27,9 @@ public class case2 {
                 res.add((BlockStmt) node);
             }
             node.getChildNodes().forEach(child -> {
-//                if (!visited.contains(child)) {
-//                    visiting.add(child);
-//                }
                 if (visited.add(child)) {
-                    visiting.add(child);
+                    // add if check
+                    visiting.add(child); // add comment
                 }
             });
         }

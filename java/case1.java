@@ -44,12 +44,7 @@ public class case1 {
                 res.add((IfStmt) node);
             }
             node.getChildNodes().forEach(child -> {
-//                if (!visited.contains(child)) {
-//                    visiting.add(child);
-//                }
-                if (visited.add(child)) {
-                    visiting.add(child);
-                }
+                System.out.println("add a line")
             });
         }
         return res;

@@ -34,4 +34,24 @@ public class case1 {
         }
         return res;
     }
+
+    public Set<IfStmt> collectIfStmts() {
+        Set<IfStmt> res = new HashSet<>();
+        visiting.add(n);
+        while (!visiting.isEmpty()) {
+            Node node = visiting.pop();
+            if (node instanceof IfStmt) {
+                res.add((IfStmt) node);
+            }
+            node.getChildNodes().forEach(child -> {
+//                if (!visited.contains(child)) {
+//                    visiting.add(child);
+//                }
+                if (visited.add(child)) {
+                    visiting.add(child);
+                }
+            });
+        }
+        return res;
+    }
 }
